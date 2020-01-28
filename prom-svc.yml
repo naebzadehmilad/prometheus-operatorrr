@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: prometheus-operated 
+spec:
+  selector:
+    app: prometheus-operator-operator 
+  type: NodePort
+  ports:
+  - protocol: TCP
+    nodePort: 31902
+    port: 9090	 
+    targetPort: 9090
