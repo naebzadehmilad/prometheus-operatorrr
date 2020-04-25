@@ -1,0 +1,17 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: prometheus-1 
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 16Gi
+  claimRef:
+    name: sammy-cluster-monitoring-prometheus-data-sammy-cluster-monitoring-prometheus-1 
+    namespace: mon
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/repo/storage-monitoring/prometheus-db"

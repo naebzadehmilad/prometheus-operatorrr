@@ -1,0 +1,17 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: grafana
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  claimRef:
+    name: sammy-cluster-monitoring-grafana-data-sammy-cluster-monitoring-grafana-0 
+    namespace: mon
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/repo/storage-monitoring/grafana"

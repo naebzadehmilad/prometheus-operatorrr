@@ -1,0 +1,17 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: alertmanager
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 16Gi
+  claimRef:
+    name: sammy-cluster-monitoring-alertmanager-data-sammy-cluster-monitoring-alertmanager-0 
+    namespace: mon
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/repo/storage-monitoring/alertmanager-db"
